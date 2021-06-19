@@ -19,7 +19,10 @@ from django.urls.conf import include
 
 from api.views import Redirector
 
+from short_url_site.views import index
+
 urlpatterns = [
+    path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
     path('<str:short_link>/', Redirector.as_view(), name='redirect')
